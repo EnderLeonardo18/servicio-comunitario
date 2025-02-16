@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Iglesia MAP Canteranos de Dios</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" 
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" 
+          crossorigin=""/>
+</head>
+<body>
+    <header>
+        <h1>Iglesia MAP Canteranos de Dios</h1>
+        
+        <!-- <button class="menu-toggle" aria-label="Abrir menú">☰</button> -->
+        <button class="menu-toggle" aria-label="Menú de navegación">☰</button>
+        <nav class="nav-menu">
+            <ul>
+                <!-- <img id="logo" src="/images/logo.jfif" alt="logo"> -->
+                <li><img id="logo" src="/images/logo.jfif" alt="logo"></li>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#mision">Misión</a></li>
+                <li><a href="#vision">Visión</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="content">
+        <!-- Sección Home -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>Bienvenidos a Nuestra Iglesia</h2>
+                <p>Un lugar de fe, esperanza y amor.</p>
+                <a href="#nosotros" class="btn">Conoce más</a>
+            </div>
+        </section>
+        
+
+
+        <div class="actividades-wrapper">
+            <h2>Nuestras Actividades</h2>
+            <div class="slider-container" role="region" aria-live="polite">
+                <!-- Slides con grupos de 3 imágenes -->
+                <div class="slide active">
+                    <img src="./images/img-1.jpeg" alt="Imagen 1">
+                    <img src="./images/img-2.jpeg" alt="Imagen 2">
+                    <img src="./images/img-3.jpeg" alt="Imagen 3">
+                </div>
+                <div class="slide">
+                    <img src="./images/img-4.jpeg" alt="Imagen 4">
+                    <img src="./images/img-5.jpeg" alt="Imagen 5">
+                    <img src="./images/img-6.jpeg" alt="Imagen 6">
+                </div>
+                <div class="slide">
+                    <img src="./images/img-7.jpeg" alt="Imagen 7">
+                    <img src="./images/img-8.jpeg" alt="Imagen 8">
+                    <img src="./images/img-9.jpeg" alt="Imagen 9">
+                </div>
+    
+                <!-- Controles de navegación -->
+                <button class="slider-arrow left" aria-label="Anterior">&lt;</button>
+                <button class="slider-arrow right" aria-label="Siguiente">&gt;</button>
+            </div>
+        </div>
+
+
+        
+
+        <!-- Sección Nosotros -->
+        <section id="nosotros" class="section">
+            <h2>Nuestra Historia</h2>
+            <p>Somos una comunidad de fe establecida en XXXX, comprometida con el servicio y la enseñanza bíblica.</p>
+            <div class="about-content">
+                <h3>Nuestros Valores</h3>
+                <ul>
+                    <li>Amor al prójimo</li>
+                    <li>Fe pentecostal</li>
+                    <li>Servicio comunitario</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="mision" class="section">
+            <h2>Misión</h2>
+            <ul>
+                <li>Misión 1</li>
+                <li>Misión 2</li>
+            </ul>
+        </section>
+
+        <section id="vision" class="section">
+            <h2>Visión</h2>
+            <ul>
+                <li>Visión 1</li>
+                <li>Visión 2</li>
+            </ul>
+        </section>
+
+        <!-- Sección Contacto -->
+        <section id="contacto" class="section">
+            <h2>Visítanos</h2>
+            <p>Estamos para servirte. Contáctanos a través de:</p>
+            <div class="contact-info">
+                <p>📞 (123) 456-7890</p>
+                <p>📧 info@iglesia.com</p>
+                <p>📍 Calle Principal #123, Ciudad</p>
+            </div>
+            <!-- Mapa de ubicación -->
+            <div id="map"></div>
+        </section>
+
+
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Todos los Derechos Reservados A Canteranos de Dios.</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" 
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" 
+            crossorigin=""></script>
+|   <script src="js/response-img.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/map.js"></script>
+</body>
+</html>
