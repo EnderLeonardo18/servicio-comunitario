@@ -43,7 +43,8 @@ header {
 
 
     /* borrar de ser necesario */
-    background-color: rgba(8, 88, 207, 0.95); /* Azul semitransparente */
+    /* Azul semitransparente */
+    background-color: rgba(8, 88, 207, 0.95); 
     backdrop-filter: blur(10px);
 }
 
