@@ -64,7 +64,6 @@ main {
     position: absolute;
     display: block;
     top: 0;
-    left: 0;
     margin: 10px auto;
     z-index: 1001;
 }
@@ -470,6 +469,10 @@ footer {
     #nosotros, #contacto, #home {
         scroll-margin-top: 120px;
     }
+
+    #logo{
+        left: 0;
+    }
 }
 
 @media (min-width: 769px) {
@@ -482,6 +485,10 @@ footer {
 @media (min-width: 1200px) {
     .section {
         padding: 5rem 3rem;
+    }
+
+    #logo {
+        left: 20px;
     }
 }
 
