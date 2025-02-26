@@ -49,7 +49,129 @@
 
         
 
-
+        <style>
+            /* Estilos generales de la sección */
+            #versiculo {
+                position: relative;
+                padding: 4rem 2rem;
+                text-align: center;
+                height: 1000px; /* Altura fija de 600px */
+                color: #fff;
+                overflow: hidden;
+            }
+    
+            .versiculo-background {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('images/versiculos1.jpg');
+                background-size: cover;  /*  Cubre todo el contenedor */
+                background-position: center;
+                z-index: -2;
+                /* filter: blur(5px);  Desenfoque opcional */
+            }
+    
+            .versiculo-content-wrapper {
+                display: grid; /* Cambiado a grid para controlar mejor la disposición */
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Dos columnas responsivas */
+                gap: 2rem;
+                max-width: 800px;
+                margin: 0 auto;
+                z-index: 1;
+                padding: 2rem 0; /* Espacio vertical para que no se peguen al borde */
+            }
+    
+            .versiculo-content {
+                position: relative;
+                padding: 2.5rem;
+                background: rgba(0, 0, 0, 0.7);
+                margin-top: 120px; /* Mueve el cuadro 20px hacia abajo */
+    /* o */
+                border-radius: 15px;
+                min-height: 300px; /* Altura mínima para los cuadros */
+            }
+    
+             /* Diamantes decorativos */
+            .versiculo-content::before,
+            .versiculo-content::after {
+                content: '';
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                background: linear-gradient(45deg, #00ffff, #0080ff);
+                transform: rotate(45deg);
+                z-index: -1; 
+            }
+    
+            .versiculo-content::before {
+                top: -25px;
+                left: -25px;
+            }
+    
+            .versiculo-content::after {
+                bottom: -25px;
+                right: -25px;
+            }
+    
+            /* Piedras preciosas alrededor */
+            #versiculo .decorative-gem {
+                position: absolute;
+                width: 40px;
+                height: 40px;
+                background: linear-gradient(45deg, #ff00ff, #ff0080);
+                transform: rotate(45deg);
+                animation: twinkle 2s infinite;
+            }
+    
+            #versiculo .gem-1 { top: 10%; left: 15%; }
+            #versiculo .gem-2 { top: 70%; right: 20%; }
+            #versiculo .gem-3 { bottom: 20%; left: 25%; }
+            #versiculo .gem-4 { top: 30%; right: 15%; }
+    
+            @keyframes twinkle {
+                0% { opacity: 0.8; }
+                50% { opacity: 0.3; }
+                100% { opacity: 0.8; }
+            }
+    
+    
+            /* Tipografía y contenido (Añade tus estilos aquí) */
+            #versiculo h2 { /* Ejemplo */
+                color: #fcd705;
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+            }
+    
+            /* etc. */
+    
+        </style>
+    </head>
+    <body>
+    
+    <section id="versiculo">
+        <div class="versiculo-background"></div>
+    
+        <h2>Versículos de la iglesia</h2>
+    
+        <div class="versiculo-content-wrapper">
+            <div class="versiculo-content">
+                <h3>1 de Reyes 6:7</h3>
+                <p>Y cuando se edificó la casa, la fabricaron de piedras que traían ya acabadas, de tal manera que cuando la edificaban, ni martillos ni hachas se oyeron en la casa, ni ningún otro instrumento de hierro</p>
+            </div>
+            <div class="versiculo-content">
+                <h3>Isaías 51:1</h3>
+                <p>Oídme, los que seguís la justicia, los que buscáis a Jehová. Mirad a la piedra de donde fuistes cortados, y al hueco de la cantera de donde fuisteis arrancados.</p>
+            </div>
+        </div>
+        <div class="decorative-gem gem-1"></div>
+        <div class="decorative-gem gem-2"></div>
+        <div class="decorative-gem gem-3"></div>
+        <div class="decorative-gem gem-4"></div>
+    </section>
+    
+   <!-- </section>
 
                 <section id="versiculo" class="versiculo">
                     <div class="decorative-gem gem-1"></div>
@@ -70,9 +192,9 @@
                 </section>
                 
                 
-            <!-- </div>
+            -->  <!-- </div>
         </section> -->
-
+    
 
 
 
