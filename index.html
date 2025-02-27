@@ -172,155 +172,6 @@
     </section>
 
    
-    <style>
-        /* ... (tu CSS existente) ... */
-
-        .slider-controls {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .slider-arrow {
-            background-color: #0077C0;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 0 10px;
-            transition: background-color 0.3s ease;
-        }
-
-        .slider-arrow:hover {
-            background-color: #005b99;
-        }
-
-        .slider-arrow:disabled {
-            background-color: #cccccc;
-            cursor: default;
-        }
-
-
-    </style>
-</head>
-<body>
-    <div class="galeria">
-        <h1>Eventos de la iglesia</h1>
-        <div class="linea"></div>
-        <div class="contenedor-imagenes">
-            <div class="imagen">
-                <img src="images/img-1.jpeg" alt="Imagen 1">
-                <div class="overlay">
-                </div>
-            </div>
-            <div class="imagen">
-                <img src="images/img-2.jpeg" alt="Imagen 2">
-                <div class="overlay">
-                </div>
-            </div>
-            <div class="imagen">
-                <img src="images/img-3.jpeg" alt="Imagen 3">
-                <div class="overlay">
-                </div>
-            </div>
-            <div class="imagen">
-                <img src="images/img-4.jpeg" alt="Imagen 4">
-                <div class="overlay">
-                </div>
-            </div>
-            <div class="imagen">
-                <img src="images/img-5.jpeg" alt="Imagen 5">
-                <div class="overlay">
-                </div>
-            </div>
-            <div class="imagen">
-                <img src="images/img-6.jpeg" alt="Imagen 6">
-                <div class="overlay">
-                </div>
-            </div>
-            <div class="imagen">
-                <img src="images/img-7.jpeg" alt="Imagen 7">
-                <div class="overlay">
-                </div>
-            </div>
-            <div class="imagen">
-                <img src="images/img-8.jpeg" alt="Imagen 8">
-                <div class="overlay">
-                </div>
-            </div>
-            <div class="imagen">
-                <img src="images/img-9.jpeg" alt="Imagen 9">
-                <div class="overlay">
-                </div>
-            </div>
-            <div class="imagen">
-                <img src="images/image.jpg" alt="Imagen 9">
-                <div class="overlay">
-                </div>
-            </div>
-            <div class="imagen">
-                <img src="images/img-7.jpeg" alt="Imagen 7">
-                <div class="overlay">
-                </div>
-            </div>
-            <div class="imagen">
-                <img src="images/img-8.jpeg" alt="Imagen 8">
-                <div class="overlay">
-                </div>
-        
-        </div>
-        <div class="slider-controls">
-            <button class="slider-arrow prev" aria-label="Anterior" disabled>&lt;</button>
-            <button class="slider-arrow next" aria-label="Siguiente">&gt;</button>
-        </div>
-    </div>
-
-    <script>
-        const contenedorImagenes = document.querySelector('.contenedor-imagenes');
-        const prevButton = document.querySelector('.prev');
-        const nextButton = document.querySelector('.next');
-        const imagenesPorPagina = 9; // Número de imágenes a mostrar por página
-        let paginaActual = 0;
-
-        function mostrarImagenes() {
-            const imagenes = document.querySelectorAll('.imagen');
-            imagenes.forEach((imagen, index) => {
-                if (index >= paginaActual * imagenesPorPagina && index < (paginaActual + 1) * imagenesPorPagina) {
-                    imagen.style.display = 'block';
-                } else {
-                    imagen.style.display = 'none';
-                }
-            });
-        }
-
-        function actualizarBotones() {
-            prevButton.disabled = paginaActual === 0;
-            nextButton.disabled = (paginaActual + 1) * imagenesPorPagina >= document.querySelectorAll('.imagen').length;
-        }
-
-        prevButton.addEventListener('click', () => {
-            paginaActual--;
-            mostrarImagenes();
-            actualizarBotones();
-        });
-
-        nextButton.addEventListener('click', () => {
-            paginaActual++;
-            mostrarImagenes();
-            actualizarBotones();
-        });
-
-
-        // Inicializar
-        mostrarImagenes();
-        actualizarBotones();
-
-
-
-       
-
-    </script>
     
         
         <!-- Sección Nosotros -->
@@ -352,6 +203,218 @@
                     abierto y dispuesta a trabajar por ello, terminará siendo una realidad.</li>                
             </ul>
         </section>
+
+
+        <style>
+            /* ... (tu CSS existente) ... */
+    
+            .slider-controls {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+            }
+    
+            .slider-arrow {
+                background-color: #0077C0;
+                color: white;
+                padding: 10px 15px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                margin: 0 10px;
+                transition: background-color 0.3s ease;
+            }
+    
+            .slider-arrow:hover {
+                background-color: #005b99;
+            }
+    
+            .slider-arrow:disabled {
+                background-color: #cccccc;
+                cursor: default;
+            }
+    
+    
+        </style>
+    </head>
+    <body>
+        <div class="galeria">
+            <h1>Eventos de la iglesia</h1>
+            <div class="linea"></div>
+            <div class="contenedor-imagenes">
+                <div class="imagen">
+                    <img src="images/img-1.jpeg" alt="Imagen 1">
+                    <div class="overlay">
+                    </div>
+                </div>
+                <div class="imagen">
+                    <img src="images/img-2.jpeg" alt="Imagen 2">
+                    <div class="overlay">
+                    </div>
+                </div>
+                <div class="imagen">
+                    <img src="images/img-3.jpeg" alt="Imagen 3">
+                    <div class="overlay">
+                    </div>
+                </div>
+                <div class="imagen">
+                    <img src="images/img-4.jpeg" alt="Imagen 4">
+                    <div class="overlay">
+                    </div>
+                </div>
+                <div class="imagen">
+                    <img src="images/img-5.jpeg" alt="Imagen 5">
+                    <div class="overlay">
+                    </div>
+                </div>
+                <div class="imagen">
+                    <img src="images/img-6.jpeg" alt="Imagen 6">
+                    <div class="overlay">
+                    </div>
+                </div>
+                <div class="imagen">
+                    <img src="images/img-7.jpeg" alt="Imagen 7">
+                    <div class="overlay">
+                    </div>
+                </div>
+                <div class="imagen">
+                    <img src="images/img-8.jpeg" alt="Imagen 8">
+                    <div class="overlay">
+                    </div>
+                </div>
+                <div class="imagen">
+                    <img src="images/img-9.jpeg" alt="Imagen 9">
+                    <div class="overlay">
+                    </div>
+                </div>
+                <div class="imagen">
+                    <img src="images/image.jpg" alt="Imagen 9">
+                    <div class="overlay">
+                    </div>
+                </div>
+                <div class="imagen">
+                    <img src="images/img-7.jpeg" alt="Imagen 7">
+                    <div class="overlay">
+                    </div>
+                </div>
+                <div class="imagen">
+                    <img src="images/img-8.jpeg" alt="Imagen 8">
+                    <div class="overlay">
+                    </div>
+            
+            </div>
+            <div class="slider-controls">
+                <button class="slider-arrow prev" aria-label="Anterior" disabled>&lt;</button>
+                <button class="slider-arrow next" aria-label="Siguiente">&gt;</button>
+            </div>
+        </div>
+    
+        <script>
+            const contenedorImagenes = document.querySelector('.contenedor-imagenes');
+            const prevButton = document.querySelector('.prev');
+            const nextButton = document.querySelector('.next');
+            const imagenesPorPagina = 9; // Número de imágenes a mostrar por página
+            let paginaActual = 0;
+    
+            function mostrarImagenes() {
+                const imagenes = document.querySelectorAll('.imagen');
+                imagenes.forEach((imagen, index) => {
+                    if (index >= paginaActual * imagenesPorPagina && index < (paginaActual + 1) * imagenesPorPagina) {
+                        imagen.style.display = 'block';
+                    } else {
+                        imagen.style.display = 'none';
+                    }
+                });
+            }
+    
+            function actualizarBotones() {
+                prevButton.disabled = paginaActual === 0;
+                nextButton.disabled = (paginaActual + 1) * imagenesPorPagina >= document.querySelectorAll('.imagen').length;
+            }
+    
+            prevButton.addEventListener('click', () => {
+                paginaActual--;
+                mostrarImagenes();
+                actualizarBotones();
+            });
+    
+            nextButton.addEventListener('click', () => {
+                paginaActual++;
+                mostrarImagenes();
+                actualizarBotones();
+            });
+    
+    
+            // Inicializar
+            mostrarImagenes();
+            actualizarBotones();
+    
+    
+    
+           
+    
+        </script>
+
+<!--Seccion videos-->
+<style>
+    body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+    h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    .video-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        background: linear-gradient(45deg, #d2d3d4, #e7e8e9, #ffffff); /* Degradado de colores */
+        gap: 20px;
+        padding: 20px;
+    }
+    .video-wrapper {
+        width: 350px; /* Ajusta el ancho según tus necesidades */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden; /* Para que el video no se salga del contenedor */
+    }
+    .video-wrapper video {
+        width: 100%;
+        display: block; /* Evita un pequeño espacio en blanco debajo del video */
+    }
+    
+    
+
+</style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Videos de la Iglesia</h1>
+        <div class="video-container">
+
+    <div class="video-wrapper">
+        <video controls>
+            <source src="videos/video1.mp4" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+        <div class="video-title"></div>
+    </div>
+
+    <div class="video-wrapper">
+        <video controls>
+            <source src="videos/video2.mp4" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+        <div class="video-title"></div>
+    </div>
+
+    <!-- Agrega más videos siguiendo este formato -->
+
+</div>
 
     
 
