@@ -326,14 +326,6 @@ main {
     font-weight: bold;
 }
 
-/* BORRAR DESPUES */
-/* #contacto div:not(#map) {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem auto;
-    max-width: 800px;
-} */
 
 #contacto div p {
     background: #f8f9fa;
@@ -354,15 +346,71 @@ main {
 }
 
 
-/* BORRAR DESPUES */
-/* #map {
-    height: 400px;
+
+
+/* Estilos del modal */
+.modal-eventos {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 800px;
-    margin: 20px auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-} */
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    overflow: auto;
+}
+
+.imagen-completa {
+    display: block;
+    max-width: 90%;
+    max-height: 90vh;
+    margin: 5% auto;
+    animation: zoom 0.3s;
+}
+
+.cerrar-modal-eventos {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cerrar-modal-eventos:hover {
+    color: #ffd700;
+    transform: scale(1.2);
+}
+
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: .5s ease;
+    
+    /* Agregado para evitar interceptar clicks */
+    pointer-events: none; 
+
+    
+    
+}
+
+@keyframes zoom {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+
+
+
+
+
 
 
 
@@ -454,10 +502,6 @@ footer {
         font-size: 2.2rem;
     }
     
-    /* BORRAR DESPUES */
-    /* #contacto div:not(#map) {
-        grid-template-columns: 1fr;
-    } */
 
     #nosotros, #contacto, #home {
         scroll-margin-top: 120px;
@@ -532,6 +576,8 @@ footer {
     width: 100%;
     height:100%;
     object-fit: cover;
+
+    cursor: pointer;
 }
 
 .overlay{
@@ -587,3 +633,8 @@ footer {
         width: 80%;
     }
 }
+
+
+
+
+
