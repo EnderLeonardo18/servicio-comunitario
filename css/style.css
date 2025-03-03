@@ -126,6 +126,7 @@ main {
     width: 100%;
 }
 
+
 .menu-toggle {
     display: none;
     background: none;
@@ -504,7 +505,7 @@ footer {
 }
 
 .linea{
-    border-top: 30px solid #0077C0;
+    border-top: 10px solid #0077C0;
     margin-bottom: 40px;
 }
 .galeria h1{
@@ -598,3 +599,6 @@ footer {
         width: 80%;
     }
 }
+
+
+

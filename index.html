@@ -7,18 +7,20 @@
 
     <link rel="shortcut icon" href="images/azul claro.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
-    
+    <link rel="stylesheet" href="css/preload.css">
+   
     <!-- LETRAS IMPORTADAS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
-
     
-
+    
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" 
+    
           integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" 
           crossorigin=""/>
 </head>
+
 <body>
     <header>
         <h1>MAP Canteranos de Dios</h1>
@@ -240,9 +242,10 @@
         </style>
     </head>
     <body>
+        
         <div class="linea"></div>
         <div class="galeria">
-            <h1>Eventos de la iglesia</h1>
+            <h1>Eventos</h1>
            
             <div class="contenedor-imagenes">
                 <div class="imagen">
@@ -303,14 +306,15 @@
                 <div class="imagen">
                     <img src="images/img-8.jpeg" alt="Imagen 8">
                     <div class="overlay">
-                    </div>
+                    </div> 
             
             </div>
+           
             <div class="slider-controls">
                 <button class="slider-arrow prev" aria-label="Anterior" disabled>&lt;</button>
                 <button class="slider-arrow next" aria-label="Siguiente">&gt;</button>
             </div>
-        </div>
+            
     
         <script>
             const contenedorImagenes = document.querySelector('.contenedor-imagenes');
@@ -358,6 +362,7 @@
     
         </script>
 
+
 <!--Seccion videos-->
 <style>
     body {
@@ -367,7 +372,7 @@
         background-color: #f0f0f0;
     }
     .margen{
-    border-top: 30px solid #0077C0;
+    border-top: 10px solid #0077C0;
     margin-top: 20px; /* Mueve el cuadro 20px hacia abajo */
     margin-bottom: 40px;
 }
@@ -402,7 +407,7 @@
 
     <div class="margen"></div>
     <div class="container">
-        <h1>Videos de la Iglesia</h1>
+        <h1>Videos</h1>
         <div class="video-container">
 
     <div class="video-wrapper">
@@ -456,5 +461,6 @@
 |   <script src="js/response-img.js"></script>
     <script src="js/script.js"></script>
     <script src="js/map.js"></script>
+    <script src="js/lightbox.js"></script>
 </body>
 </html>
