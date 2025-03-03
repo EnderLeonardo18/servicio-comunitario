@@ -370,6 +370,8 @@ main {
     max-height: 90vh;
     margin: 5% auto;
     animation: zoom 0.3s;
+    position: relative;
+    z-index: 2001;
 }
 
 .cerrar-modal-eventos {
@@ -380,6 +382,7 @@ main {
     font-size: 40px;
     cursor: pointer;
     transition: 0.3s;
+    z-index: 2100; /* Asegura que esté por encima */
 }
 
 .cerrar-modal-eventos:hover {

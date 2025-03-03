@@ -4,159 +4,187 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>MAP Canteranos de Dios</title>
+  <link rel="shortcut icon" href="images/azul claro.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.css">
 
-    <link rel="shortcut icon" href="images/azul claro.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css">
-    
-    <!-- LETRAS IMPORTADAS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
+  <!-- LETRAS IMPORTADAS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
 
-    
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" 
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" 
+        crossorigin=""/>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" 
-          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" 
-          crossorigin=""/>
+  <style>
+    /* Estilos para la sección Versículo */
+    #versiculo {
+      position: relative;
+      padding: 4rem 2rem;
+      text-align: center;
+      height: 1000px;
+      color: #fff;
+      overflow: hidden;
+    }
+    .versiculo-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('images/versiculos1.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: -2;
+    }
+    .versiculo-content-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      z-index: 1;
+      padding: 2rem 0;
+    }
+    .versiculo-content {
+      position: relative;
+      padding: 2.5rem;
+      background: rgba(0, 0, 0, 0.7);
+      margin-top: 120px;
+      border-radius: 15px;
+      min-height: 300px;
+    }
+    .versiculo-content::before,
+    .versiculo-content::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(45deg, #00ffff, #0080ff);
+      transform: rotate(45deg);
+      z-index: -1;
+    }
+    .versiculo-content::before {
+      top: -25px;
+      left: -25px;
+    }
+    .versiculo-content::after {
+      bottom: -25px;
+      right: -25px;
+    }
+    #versiculo .decorative-gem {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(45deg, #ff00ff, #ff0080);
+      transform: rotate(45deg);
+      animation: twinkle 2s infinite;
+    }
+    #versiculo .gem-1 { top: 10%; left: 15%; }
+    #versiculo .gem-2 { top: 70%; right: 20%; }
+    #versiculo .gem-3 { bottom: 20%; left: 25%; }
+    #versiculo .gem-4 { top: 30%; right: 15%; }
+    @keyframes twinkle {
+      0% { opacity: 0.8; }
+      50% { opacity: 0.3; }
+      100% { opacity: 0.8; }
+    }
+    @media screen and (max-width:700px) {
+      .versiculo-content {
+        margin-top: 10px;
+      }
+    }
+
+    /* Estilos para el slider (galería de eventos) */
+    .slider-controls {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .slider-arrow {
+      background-color: #0077C0;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 0 10px;
+      transition: background-color 0.3s ease;
+    }
+    .slider-arrow:hover {
+      background-color: #005b99;
+    }
+    .slider-arrow:disabled {
+      background-color: #cccccc;
+      cursor: default;
+    }
+
+    /* Estilos para la sección de videos */
+    body {
+      /* font-family: sans-serif; */
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+    .margen {
+      border-top: 30px solid #0077C0;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .video-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      background: linear-gradient(45deg, #d2d3d4, #e7e8e9, #ffffff);
+      gap: 20px;
+      padding: 20px;
+    }
+    .video-wrapper {
+      width: 350px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .video-wrapper video {
+      width: 100%;
+      display: block;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>MAP Canteranos de Dios</h1>
-        
-        <!-- <button class="menu-toggle" aria-label="Abrir menú">☰</button> -->
-        <button class="menu-toggle" aria-label="Menú de navegación">☰</button>
-        <nav class="nav-menu">
-            <ul>
-              <!---  <li><img id="logo" src="/images/logo.png" alt="logo"></li> -->
-              <img id="logo" src="images/logo.png" alt="logo"> 
-                <li><a href="#home">Inicio</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#mision">Misión</a></li>
-                <li><a href="#vision">Visión</a></li>
-                
-            
+  <!-- HEADER -->
+  <header>
+    <h1>MAP Canteranos de Dios</h1>
+    <button class="menu-toggle" aria-label="Menú de navegación">☰</button>
+    <nav class="nav-menu">
+      <ul>
+        <img id="logo" src="images/logo.png" alt="logo">
+        <li><a href="#home">Inicio</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#mision">Misión</a></li>
+        <li><a href="#vision">Visión</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- MAIN -->
+  <main id="content">
+    <!-- Sección Home -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h2>Bienvenidos a Nuestra Iglesia</h2>
+        <p>Un lugar de fe, esperanza y amor.</p>
+        <a href="#galeria" class="btn">Conoce más</a>
+      </div>
+    </section>
 
-    <main id="content">
-
-
-
-        <!-- Sección Home -->
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h2>Bienvenidos a Nuestra Iglesia</h2>
-                <p>Un lugar de fe, esperanza y amor.</p>
-                <a href="#actividades" class="btn">Conoce más</a>
-            </div>
-        </section>
-
-        
-
-        <style>
-            /* Estilos generales de la sección */
-            #versiculo {
-                position: relative;
-                padding: 4rem 2rem;
-                text-align: center;
-                height: 1000px; /* Altura fija de 600px */
-                color: #fff;
-                overflow: hidden;
-            }
-    
-            .versiculo-background {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-image: url('images/versiculos1.jpg');
-                background-size: cover;  /*  Cubre todo el contenedor */
-                background-position: center;
-                z-index: -2;
-                /* filter: blur(5px);  Desenfoque opcional */
-            }
-    
-            .versiculo-content-wrapper {
-                display: grid; /* Cambiado a grid para controlar mejor la disposición */
-                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Dos columnas responsivas */
-                gap: 2rem;
-                max-width: 800px;
-                margin: 0 auto;
-                z-index: 1;
-                padding: 2rem 0; /* Espacio vertical para que no se peguen al borde */
-            }
-    
-            .versiculo-content {
-                position: relative;
-                padding: 2.5rem;
-                background: rgba(0, 0, 0, 0.7);
-                margin-top: 120px; /* Mueve el cuadro 20px hacia abajo */
-    /* o */
-                border-radius: 15px;
-                min-height: 300px; /* Altura mínima para los cuadros */
-            }
-    
-             /* Diamantes decorativos */
-            .versiculo-content::before,
-            .versiculo-content::after {
-                content: '';
-                position: absolute;
-                width: 50px;
-                height: 50px;
-                background: linear-gradient(45deg, #00ffff, #0080ff);
-                transform: rotate(45deg);
-                z-index: -1; 
-            }
-    
-            .versiculo-content::before {
-                top: -25px;
-                left: -25px;
-            }
-    
-            .versiculo-content::after {
-                bottom: -25px;
-                right: -25px;
-            }
-    
-            /* Piedras preciosas alrededor */
-            #versiculo .decorative-gem {
-                position: absolute;
-                width: 40px;
-                height: 40px;
-                background: linear-gradient(45deg, #ff00ff, #ff0080);
-                transform: rotate(45deg);
-                animation: twinkle 2s infinite;
-            }
-    
-            #versiculo .gem-1 { top: 10%; left: 15%; }
-            #versiculo .gem-2 { top: 70%; right: 20%; }
-            #versiculo .gem-3 { bottom: 20%; left: 25%; }
-            #versiculo .gem-4 { top: 30%; right: 15%; }
-    
-            @keyframes twinkle {
-                0% { opacity: 0.8; }
-                50% { opacity: 0.3; }
-                100% { opacity: 0.8; }
-            }
-
-            @media screen and (max-width:700px){
-                .versiculo-content {
-                margin-top: 10px; /* Mueve el cuadro 20px hacia abajo */
-    /* o */ }
-    
-}
-            
-    
-            /* etc. */
-    
-        </style>
-    </head>
-    <body>
-    
+    <!-- Sección Versículo -->
     <section id="versiculo">
       <div class="versiculo-background"></div>
       <h2>Versículos de la iglesia</h2>
@@ -207,209 +235,92 @@
       </ul>
     </section>
 
-
-        <style>
-            /* ... (tu CSS existente) ... */
-    
-            .slider-controls {
-                display: flex;
-                justify-content: center;
-                margin-top: 20px;
-            }
-    
-            .slider-arrow {
-                background-color: #0077C0;
-                color: white;
-                padding: 10px 15px;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                margin: 0 10px;
-                transition: background-color 0.3s ease;
-            }
-    
-            .slider-arrow:hover {
-                background-color: #005b99;
-            }
-    
-            .slider-arrow:disabled {
-                background-color: #cccccc;
-                cursor: default;
-            }
-    
-    
-        </style>
-    </head>
-    <body>
-        <div class="linea"></div>
-        <div class="galeria">
-            <h1>Eventos de la iglesia</h1>
-           
-            <div class="contenedor-imagenes">
-                <div class="imagen">
-                    <img src="images/img-1.jpeg" alt="Imagen 1">
-                    <div class="overlay">
-                    </div>
-                </div>
-                <div class="imagen">
-                    <img src="images/img-2.jpeg" alt="Imagen 2">
-                    <div class="overlay">
-                    </div>
-                </div>
-                <div class="imagen">
-                    <img src="images/img-3.jpeg" alt="Imagen 3">
-                    <div class="overlay">
-                    </div>
-                </div>
-                <div class="imagen">
-                    <img src="images/img-4.jpeg" alt="Imagen 4">
-                    <div class="overlay">
-                    </div>
-                </div>
-                <div class="imagen">
-                    <img src="images/img-5.jpeg" alt="Imagen 5">
-                    <div class="overlay">
-                    </div>
-                </div>
-                <div class="imagen">
-                    <img src="images/img-6.jpeg" alt="Imagen 6">
-                    <div class="overlay">
-                    </div>
-                </div>
-                <div class="imagen">
-                    <img src="images/img-7.jpeg" alt="Imagen 7">
-                    <div class="overlay">
-                    </div>
-                </div>
-                <div class="imagen">
-                    <img src="images/img-8.jpeg" alt="Imagen 8">
-                    <div class="overlay">
-                    </div>
-                </div>
-                <div class="imagen">
-                    <img src="images/img-9.jpeg" alt="Imagen 9">
-                    <div class="overlay">
-                    </div>
-                </div>
-                <div class="imagen">
-                    <img src="images/image.jpg" alt="Imagen 9">
-                    <div class="overlay">
-                    </div>
-                </div>
-                <div class="imagen">
-                    <img src="images/img-7.jpeg" alt="Imagen 7">
-                    <div class="overlay">
-                    </div>
-                </div>
-                <div class="imagen">
-                    <img src="images/img-8.jpeg" alt="Imagen 8">
-                    <div class="overlay">
-                    </div>
-            
-            </div>
-            <div class="slider-controls">
-                <button class="slider-arrow prev" aria-label="Anterior" disabled>&lt;</button>
-                <button class="slider-arrow next" aria-label="Siguiente">&gt;</button>
-            </div>
+    <!-- Sección Galería (Eventos de la iglesia) -->
+    <section id="galeria" class="section">
+      <div class="linea"></div>
+      <div class="galeria">
+        <h1>Eventos de la iglesia</h1>
+        <div class="contenedor-imagenes">
+          <div class="imagen">
+            <img src="images/img-1.jpeg" alt="Imagen 1">
+            <div class="overlay"></div>
+          </div>
+          <div class="imagen">
+            <img src="images/img-2.jpeg" alt="Imagen 2">
+            <div class="overlay"></div>
+          </div>
+          <div class="imagen">
+            <img src="images/img-3.jpeg" alt="Imagen 3">
+            <div class="overlay"></div>
+          </div>
+          <div class="imagen">
+            <img src="images/img-4.jpeg" alt="Imagen 4">
+            <div class="overlay"></div>
+          </div>
+          <div class="imagen">
+            <img src="images/img-5.jpeg" alt="Imagen 5">
+            <div class="overlay"></div>
+          </div>
+          <div class="imagen">
+            <img src="images/img-6.jpeg" alt="Imagen 6">
+            <div class="overlay"></div>
+          </div>
+          <div class="imagen">
+            <img src="images/img-7.jpeg" alt="Imagen 7">
+            <div class="overlay"></div>
+          </div>
+          <div class="imagen">
+            <img src="images/img-8.jpeg" alt="Imagen 8">
+            <div class="overlay"></div>
+          </div>
+          <div class="imagen">
+            <img src="images/img-9.jpeg" alt="Imagen 9">
+            <div class="overlay"></div>
+          </div>
+          <!-- BORRAR DESPUES Y AGREGAR NUEVAS IMAGENES -->
+          <div class="imagen">
+            <img src="images/image.jpg" alt="Imagen 10">
+            <div class="overlay"></div>
+          </div>
+          <div class="imagen">
+            <img src="images/img-7.jpeg" alt="Imagen 11">
+            <div class="overlay"></div>
+          </div>
+          <div class="imagen">
+            <img src="images/img-8.jpeg" alt="Imagen 12">
+            <div class="overlay"></div>
+          </div>
+          <!-- Modal -->
+          <div id="modalEventos" class="modal-eventos">
+            <span class="cerrar-modal-eventos">&times;</span>
+            <img class="imagen-completa" alt="Imagen ampliada">
+          </div>
         </div>
-    
-        <script>
-            const contenedorImagenes = document.querySelector('.contenedor-imagenes');
-            const prevButton = document.querySelector('.prev');
-            const nextButton = document.querySelector('.next');
-            const imagenesPorPagina = 9; // Número de imágenes a mostrar por página
-            let paginaActual = 0;
-    
-      function mostrarImagenes() {
-        const imagenes = document.querySelectorAll('.imagen');
-        imagenes.forEach((imagen, index) => {
-          if (index >= paginaActual * imagenesPorPagina && index < (paginaActual + 1) * imagenesPorPagina) {
-            imagen.style.display = 'block';
-          } else {
-            imagen.style.display = 'none';
-          }
-        });
-      }
-    
-      function actualizarBotones() {
-        prevButton.disabled = paginaActual === 0;
-        nextButton.disabled = (paginaActual + 1) * imagenesPorPagina >= document.querySelectorAll('.imagen').length;
-      }
-    
-      prevButton.addEventListener('click', () => {
-        paginaActual--;
-        mostrarImagenes();
-        actualizarBotones();
-      });
-    
-      nextButton.addEventListener('click', () => {
-        paginaActual++;
-        mostrarImagenes();
-        actualizarBotones();
-      });
-    
-      // Inicializar slider
-      mostrarImagenes();
-      actualizarBotones();
-    </script>
-
-<!--Seccion videos-->
-<style>
-    body {
-        font-family: sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f0f0f0;
-    }
-    .margen{
-    border-top: 30px solid #0077C0;
-    margin-top: 20px; /* Mueve el cuadro 20px hacia abajo */
-    margin-bottom: 40px;
-}
-    h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-    .video-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        background: linear-gradient(45deg, #d2d3d4, #e7e8e9, #ffffff); /* Degradado de colores */
-        gap: 20px;
-        padding: 20px;
-    }
-    .video-wrapper {
-        width: 350px; /* Ajusta el ancho según tus necesidades */
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        overflow: hidden; /* Para que el video no se salga del contenedor */
-    }
-    .video-wrapper video {
-        width: 100%;
-        display: block; /* Evita un pequeño espacio en blanco debajo del video */
-    }
-    
+        <div class="slider-controls">
+          <button class="slider-arrow prev" aria-label="Anterior" disabled>&lt;</button>
+          <button class="slider-arrow next" aria-label="Siguiente">&gt;</button>
+        </div>
+      </div>
+    </section>
     
 
-</style>
-</head>
-<body>
-
-    <div class="margen"></div>
-    <div class="container">
+    <!-- Sección Videos -->
+    <section id="videos" class="section">
+      <div class="margen"></div>
+      <div class="container">
         <h1>Videos de la Iglesia</h1>
         <div class="video-container">
-
-    <div class="video-wrapper">
-        <video controls>
-            <source src="videos/video1.mp4" type="video/mp4">
-            Tu navegador no soporta la etiqueta de video.
-          </video>
-          <div class="video-title"></div>
+          <div class="video-wrapper">
+            <video controls>
+              <source src="videos/video1.mp4" type="video/mp4">
+              Tu navegador no soporta la etiqueta de video.
+            </video>
+            <div class="video-title"></div>
+          </div>
+          <!-- Agrega más videos siguiendo este formato -->
         </div>
-        <!-- Agrega más videos siguiendo este formato -->
       </div>
-    </div>
+    </section>
 
     <!-- Sección Contacto -->
     <section id="contacto" class="section">
@@ -425,15 +336,61 @@
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 Todos los Derechos Reservados A Canteranos de Dios.</p>
   </footer>
 
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" 
-            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" 
-            crossorigin=""></script>
-|   <script src="js/response-img.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/map.js"></script>
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" 
+          integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" 
+          crossorigin=""></script>
+
+          <script>
+            // Código para el slider de imágenes en la galería
+            const contenedorImagenes = document.querySelector('.contenedor-imagenes');
+            const prevButton = document.querySelector('.prev');
+            const nextButton = document.querySelector('.next');
+            const imagenesPorPagina = 9; // Número de imágenes a mostrar por página
+            let paginaActual = 0;
+            
+            function mostrarImagenes() {
+              const imagenes = document.querySelectorAll('.imagen');
+              imagenes.forEach((imagen, index) => {
+                if (index >= paginaActual * imagenesPorPagina && index < (paginaActual + 1) * imagenesPorPagina) {
+                  imagen.style.display = 'block';
+                } else {
+                  imagen.style.display = 'none';
+                }
+              });
+            }
+            
+            function actualizarBotones() {
+              prevButton.disabled = paginaActual === 0;
+              nextButton.disabled = (paginaActual + 1) * imagenesPorPagina >= document.querySelectorAll('.imagen').length;
+            }
+            
+            prevButton.addEventListener('click', () => {
+              paginaActual--;
+              mostrarImagenes();
+              actualizarBotones();
+            });
+            
+            nextButton.addEventListener('click', () => {
+              paginaActual++;
+              mostrarImagenes();
+              actualizarBotones();
+            });
+            
+            // Inicializar slider
+            mostrarImagenes();
+            actualizarBotones();
+          </script>          
+        
+  <script src="js/response-img.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/map.js"></script>
+
 </body>
 </html>
