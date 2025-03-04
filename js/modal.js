@@ -8,7 +8,7 @@ document.querySelectorAll('.contenedor-imagenes img').forEach(img => {
     img.addEventListener('click', () => {
         imagenAmpliada.src = img.src;
         modal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Bloquear scroll
+        document.body.style.overflow = 'none'; // Para bloquear el scroll se usa el hidden
     });
 });
 

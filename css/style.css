@@ -361,21 +361,31 @@ main {
     height: 100%;
     background: rgba(0, 0, 0, 0.9);
     z-index: 2000;
-    overflow: auto;
+    
+    /* overflow: auto; */
+
+    overflow-y: auto; /* Permitir scroll vertical */
 }
 
 .imagen-completa {
     display: block;
     max-width: 90%;
     max-height: 90vh;
-    margin: 5% auto;
+
+    /* margin: 5% auto; */
+
+    margin: 80px auto 40px; /* Margen superior para la X */
+
     animation: zoom 0.3s;
     position: relative;
     z-index: 2001;
 }
 
 .cerrar-modal-eventos {
-    position: absolute;
+    /* position: absolute; */
+
+    position: fixed; /* Cambiado de absolute a fixed */
+
     top: 20px;
     right: 30px;
     color: white;
