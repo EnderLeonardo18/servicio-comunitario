@@ -55,7 +55,6 @@
       border-radius: 15px;
       min-height: 300px;
     }
-
     .versiculo-content::before,
     .versiculo-content::after {
       content: '';
@@ -137,28 +136,25 @@
       padding: 0;
       background-color: #f0f0f0;
     }
-    .videos-title { /* Estilos específicos para el h1 de videos */
-    font-size: 2.8rem;
-    margin-bottom: 2.5rem;
-    margin-top: 10px;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #00a2ff;
-    text-shadow: 5px 5px 5px #fdf040;
-    position: relative;
-}
-
-.videos-title::after { /* Pseudo-elemento para la línea */
-    content: '';
-    position: absolute;
-    bottom: 0;
-    margin-top: 200px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 3px;
-    background: #ffd700;
-}
+    .videos-title {
+      font-size: 2.8rem;
+      margin-top: 10px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #00a2ff;
+      text-shadow: 5px 5px 5px #fdf040;
+      position: relative;
+    }
+    .videos-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 3px;
+      background: #ffd700;
+    }
     .video-container {
       display: flex;
       flex-wrap: wrap;
@@ -176,6 +172,49 @@
     .video-wrapper video {
       width: 100%;
       display: block;
+    }
+
+    /* Estilos para íconos sociales */
+    .social-icons {
+      position: fixed;
+      right: 40px;
+      bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      z-index: 100;
+    }
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.2s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+    .social-icon img {
+      width: 30px;
+      height: 30px;
+    }
+    .social-icon:hover {
+      transform: scale(1.1);
+    }
+    .social-icon[href*="facebook"] { background-color: #039BE5; }
+    .social-icon[href*="instagram"] { background-image: radial-gradient(circle at 30% 107%, #fdf497 5%, #fdf497 10%, #fd5949 40%, #d6249f 50%, #a90ff0 75%, #285AEB 90%); }
+    .social-icon[href*="youtube"] { background-color: #ff0000; }
+    .social-icon[href*="tiktok"] { background-color: rgb(0, 0, 0); }
+    .social-icon[href*="x"] { background-color: black; }
+    .social-icon[href*="whatsapp"] { background-color: #25d366; }
+    .social-icon[href*="t.me"] { background-color: #29B6F6; }
+    
+    @media (max-width: 768px) {
+      .social-icons {
+        bottom: 10px;
+        right: 10px;
+      }
     }
   </style>
 </head>
@@ -324,7 +363,6 @@
         </div>
       </div>
     </section>
-    
 
     <!-- Sección Videos -->
     <section id="videos" class="section">
@@ -362,128 +400,78 @@
     <p>&copy; 2025 Todos los Derechos Reservados A Canteranos de Dios.</p>
   </footer>
 
+  <!-- Íconos Sociales -->
+  <div class="social-icons">
+    <a class="social-icon" href="https://www.facebook.com/share/18gg7mcZHu/" target="_blank">
+      <img src="images/icons8-facebook-nuevo.svg" alt="Facebook">
+    </a>
+    <a class="social-icon" href="https://www.instagram.com/canteranosdios?igsh=NW1tMzFxZHVzdG0w" target="_blank">
+      <img src="images/instagram (3).svg" alt="Instagram">
+    </a>
+    <a class="social-icon" href="https://www.youtube.com/@MAPCanteranosdeDios" target="_blank">
+      <img src="images/youtube.svg" alt="YouTube">
+    </a>
+    <a class="social-icon" href="https://www.tiktok.com/@canteranos.de.dios?_t=ZM-8uNclhswZpm&_r=1" target="_blank">
+      <img src="images/tiktok (1).svg" alt="TikTok">
+    </a>
+    <a class="social-icon" href="https://x.com/Canteranos01?t=2FWBFE08GixTm_b8VuCT7w&s=09" target="_blank">
+      <img src="images/twitter.svg" alt="X">
+    </a>
+    <a class="social-icon" href="https://whatsapp.com/channel/0029Vb9jyvS6GcG5y6hmnh1d" target="_blank">
+      <img src="images/icons8-whatsapp.svg" alt="WhatsApp">
+    </a>
+    <a class="social-icon" href="https://t.me/MAPCanteranosdeDios" target="_blank">
+      <img src="images/icons8-telegram-app.svg" alt="Telegram">
+    </a>
+  </div>
+
   <!-- SCRIPTS -->
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" 
           integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" 
           crossorigin=""></script>
-
-          <script>
-            // Código para el slider de imágenes en la galería
-            const contenedorImagenes = document.querySelector('.contenedor-imagenes');
-            const prevButton = document.querySelector('.prev');
-            const nextButton = document.querySelector('.next');
-            const imagenesPorPagina = 9; // Número de imágenes a mostrar por página
-            let paginaActual = 0;
-            
-            function mostrarImagenes() {
-              const imagenes = document.querySelectorAll('.imagen');
-              imagenes.forEach((imagen, index) => {
-                if (index >= paginaActual * imagenesPorPagina && index < (paginaActual + 1) * imagenesPorPagina) {
-                  imagen.style.display = 'block';
-                } else {
-                  imagen.style.display = 'none';
-                }
-              });
-            }
-            
-            function actualizarBotones() {
-              prevButton.disabled = paginaActual === 0;
-              nextButton.disabled = (paginaActual + 1) * imagenesPorPagina >= document.querySelectorAll('.imagen').length;
-            }
-            
-            prevButton.addEventListener('click', () => {
-              paginaActual--;
-              mostrarImagenes();
-              actualizarBotones();
-            });
-            
-            nextButton.addEventListener('click', () => {
-              paginaActual++;
-              mostrarImagenes();
-              actualizarBotones();
-            });
-            
-            // Inicializar slider
-            mostrarImagenes();
-            actualizarBotones();
-          </script>    
-          
-          <style>
-            .social-icons {
-                position: fixed;
-                right: 40px;
-                bottom: 40px;
-                display: flex;
-                flex-direction: column;
-                z-index: 100;
-            }
+  <script>
+    // Código para el slider de imágenes en la galería
+    const contenedorImagenes = document.querySelector('.contenedor-imagenes');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    const imagenesPorPagina = 9; // Número de imágenes a mostrar por página
+    let paginaActual = 0;
     
-            .social-icon {
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                margin-bottom: 10px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                transition: transform 0.2s ease;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-                overflow: hidden; /* Para evitar que el SVG se desborde */
-            }
+    function mostrarImagenes() {
+      const imagenes = document.querySelectorAll('.imagen');
+      imagenes.forEach((imagen, index) => {
+        if (index >= paginaActual * imagenesPorPagina && index < (paginaActual + 1) * imagenesPorPagina) {
+          imagen.style.display = 'block';
+        } else {
+          imagen.style.display = 'none';
+        }
+      });
+    }
     
-            .social-icon img {
-                width: 30px; /* Ajusta el tamaño según sea necesario */
-                height: 30px;
-            }
+    function actualizarBotones() {
+      prevButton.disabled = paginaActual === 0;
+      nextButton.disabled = (paginaActual + 1) * imagenesPorPagina >= document.querySelectorAll('.imagen').length;
+    }
     
+    prevButton.addEventListener('click', () => {
+      paginaActual--;
+      mostrarImagenes();
+      actualizarBotones();
+    });
     
-            .social-icon:hover {
-                transform: scale(1.1);
-            }
-            
+    nextButton.addEventListener('click', () => {
+      paginaActual++;
+      mostrarImagenes();
+      actualizarBotones();
+    });
     
-            /* Estilos específicos para cada icono (puedes ajustarlos) */
-            .social-icon[href*="facebook"] { background-color: #039BE5; }
-            .social-icon[href*="instagram"] { background-image: radial-gradient(circle at 30% 107%, #fdf497 5%, #fdf497 10%, #fd5949 40%,#d6249f 50%,#a90ff0 75%,#285AEB 90%);
-   /* Bordes redondeados opcionales */
-}
-            .social-icon[href*="youtube"] { background-color: #ff0000; }
-            .social-icon[href*="tiktok"] { background-color: rgb(0, 0, 0); }
-            .social-icon[href*="x"] { background-color: black; } /* X (Twitter) y TikTok negro */
-            .social-icon[href*="whatsapp"] { background-color: #25d366; }
-            .social-icon[href*="t.me"] { background-color: #29B6F6; }
-    
-    
-            @media (max-width: 768px) {
-                .social-icons {
-                    bottom: 10px;
-                    right: 10px;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <div class="social-icons">
-            <a class="social-icon" href="https://www.facebook.com/share/18gg7mcZHu/" target="_blank">
-                <img src="images/icons8-facebook-nuevo.svg" alt="Facebook"> </a>
-            <a class="social-icon" href="https://www.instagram.com/canteranosdios?igsh=NW1tMzFxZHVzdG0w" target="_blank">
-                <img src="images/instagram (3).svg" alt="Instagram"> </a>
-            <a class="social-icon" href="https://www.youtube.com/@MAPCanteranosdeDios" target="_blank">
-                <img src="images/youtube.svg" alt="YouTube"> </a>
-            <a class="social-icon" href="https://www.tiktok.com/@canteranos.de.dios?_t=ZM-8uNclhswZpm&_r=1" target="_blank">
-                <img src="images/tiktok (1).svg" alt="TikTok"> </a>
-            <a class="social-icon" href="https://x.com/Canteranos01?t=2FWBFE08GixTm_b8VuCT7w&s=09" target="_blank">
-                <img src="images/twitter.svg" alt="X"> </a>
-            <a class="social-icon" href="https://whatsapp.com/channel/0029Vb9jyvS6GcG5y6hmnh1d" target="_blank">
-                <img src="images/icons8-whatsapp.svg" alt="WhatsApp"> </a>
-            <a class="social-icon" href="https://t.me/MAPCanteranosdeDios" target="_blank">
-                <img src="images/icons8-telegram-app.svg" alt="Telegram"> </a>
-        </div>
-        
+    // Inicializar slider
+    mostrarImagenes();
+    actualizarBotones();
+  </script>
   <script src="js/response-img.js"></script>
   <script src="js/modal.js"></script>
   <script src="js/script.js"></script>
   <script src="js/map.js"></script>
-
 </body>
 </html>
