@@ -1,106 +1,87 @@
+/* ==========================================================
+   Global Reset and Base Styles
+========================================================== */
 * {
     margin: 0;
-    padding: 0;    
+    padding: 0;
     box-sizing: border-box;
-    
-}
-
-/* Scroll suave */
-@supports (scroll-behavior: smooth) {
+  }
+  
+  @supports (scroll-behavior: smooth) {
     html {
-        scroll-behavior: smooth;
+      scroll-behavior: smooth;
     }
-}
-
-body {
-
+  }
+  
+  body {
     font-family: "DM Serif Text", serif;
     font-style: italic;
-    
-
-    
-
     line-height: 1.6;
     color: #333;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-
-
-    /* nuevo para el fondo */
-    background-color: #F0F8FF; /* Color recomendado */
-    /* Opcional: gradiente suave para profundidad */
+    background-color: #F0F8FF;
     background: linear-gradient(to bottom, #F0F8FF, #FFFFFF);
-}
-
-header {
+  }
+  
+  /* ==========================================================
+     Header and Navigation
+  ========================================================== */
+  header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: #0858cf;
+    background-color: rgba(8, 88, 207, 0.95);
+    backdrop-filter: blur(10px);
     color: #fff;
     padding: 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     text-align: center;
-
-
-    /* borrar de ser necesario */
-    /* Azul semitransparente */
-    background-color: rgba(8, 88, 207, 0.95); 
-    backdrop-filter: blur(10px);
-}
-
-header h1 {
+  }
+  
+  header h1 {
     font-size: 2.5rem;
-    position: relative;
     padding-bottom: 1rem;
     color: #fff;
     font-weight: bold;
     text-shadow: 2px 2px 4px rgba(0, 4, 255, 0.9);
-}
-
-main {
-    flex: 1;
-}
-
-#logo {
+  }
+  
+  #logo {
     width: 130px;
     height: 110px;
     position: absolute;
     top: 10px;
     left: 10px;
     z-index: 1001;
-}
-
-
-.nav-menu {
+  }
+  
+  .nav-menu {
     background-color: #0858cf;
     padding: 0.5rem 1rem;
     margin-top: 2.5rem;
-}
-
-.nav-menu ul {
+  }
+  
+  .nav-menu ul {
     display: flex;
     justify-content: center;
     list-style: none;
     gap: 1rem;
-    padding: 0;
-    margin: 0;
-}
-
-.nav-menu a {
+  }
+  
+  .nav-menu a {
     color: #fff;
     text-decoration: none;
     padding: 0.5rem 1rem;
     transition: opacity 0.3s;
     font-size: 1rem;
     position: relative;
-    
-}
-
-.nav-menu a::after {
+  }
+  
+  .nav-menu a::after {
     content: '';
     position: absolute;
     left: 0;
@@ -109,14 +90,13 @@ main {
     height: 2px;
     background-color: yellow;
     transition: width 0.3s ease;
-}
-
-.nav-menu a:hover::after {
+  }
+  
+  .nav-menu a:hover::after {
     width: 100%;
-}
-
-
-.menu-toggle {
+  }
+  
+  .menu-toggle {
     display: none;
     background: none;
     border: none;
@@ -124,9 +104,12 @@ main {
     font-size: 1.5rem;
     cursor: pointer;
     z-index: 1002;
-}
-
-.hero {
+  }
+  
+  /* ==========================================================
+     Hero Section (#home)
+  ========================================================== */
+  .hero {
     background: url(../images/image.jpg) no-repeat center center / cover;
     color: #fff;
     padding: 4rem 1rem;
@@ -135,27 +118,25 @@ main {
     text-shadow: 2px 2px 4px rgba(0, 4, 255, 0.9);
     display: grid;
     place-content: center;
-
-    
-}
-
-.hero-content {
+  }
+  
+  .hero-content {
     padding-top: 40px;
     max-width: 800px;
     margin: 0 auto;
-}
-
-.hero h2 {
+  }
+  
+  .hero h2 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
-}
-
-.hero p {
+  }
+  
+  .hero p {
     font-size: 2.2rem;
     margin-bottom: 2rem;
-}
-
-.btn {
+  }
+  
+  .btn {
     background-color: #3498db;
     color: #fff;
     font-size: 1.4rem;
@@ -164,82 +145,110 @@ main {
     border-radius: 5px;
     display: inline-block;
     transition: background-color 0.3s;
-
-    /* SEPARA LO DE ABAJO DE VERSICULOS */
-    margin-bottom: 200px;
-}
-
-.btn:hover {
+    margin-bottom: 200px; /* Separa lo de abajo de Versículos */
+  }
+  
+  .btn:hover {
     background-color: #2980b9;
-}
-
-
-
-
-
-/* Estilos generales de la sección */
-#versiculo.versiculo {
+  }
+  
+  /* ==========================================================
+     Versículo Section (#versiculo)
+  ========================================================== */
+  #versiculo {
     position: relative;
     padding: 4rem 2rem;
     text-align: center;
-    /*  Intenta con esta ruta si la imagen está en la misma carpeta */
-    background-image: url('images/versiculos1.jpg'); 
+    height: 1000px;
     color: #fff;
     overflow: hidden;
-    /* border-radius: 10px; */
-}
-
-
-
-/* Tipografía y contenido */
-#versiculo h2 {
-    font-size: 2.8rem;
-    text-align: center;
-    margin-bottom: 2.5rem;
-    margin-top: 10px; /* Mueve el cuadro 20px hacia abajo */
+  }
+  
+  .versiculo-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/versiculos1.jpg);
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+  }
+  
+  .versiculo-content-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    z-index: 1;
+    padding: 2rem 0;
+  }
+  
+  .versiculo-content {
     position: relative;
-    padding-bottom: 1rem;
-    color: #00a2ff;
-    font-weight: bold;
-    text-shadow: 5px 5px 5px #fdf040; /* Sombra negra con 70% de opacidad */
-
-}
-
-.versiculo h2::after {
+    padding: 2.5rem;
+    background: rgba(0, 0, 0, 0.7);
+    margin-top: 120px;
+    border-radius: 15px;
+    min-height: 300px;
+  }
+  
+  .versiculo-content::before,
+  .versiculo-content::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 3px;
-    background: #ffd700;
-}
-
-.versiculo-content h3 {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: #ffd700;
-    
-}
-
-.versiculo-content ul {
-    list-style: none;
-    padding: 0;
-}
-
-.versiculo-content li {
-    margin: 1rem 0;
-    padding: 0.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-left: 3px solid #ffd700;
-}
-
-
-/* ========== ESTILOS UNIFICADOS PARA SECCIONES ========== */
-.section {
-    /* background: #ffffff; */
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, #00ffff, #0080ff);
+    transform: rotate(45deg);
+    z-index: -1;
+  }
+  
+  .versiculo-content::before {
+    top: -25px;
+    left: -25px;
+  }
+  
+  .versiculo-content::after {
+    bottom: -25px;
+    right: -25px;
+  }
+  
+  #versiculo .decorative-gem {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, #ff00ff, #ff0080);
+    transform: rotate(45deg);
+    animation: twinkle 2s infinite;
+  }
+  
+  #versiculo .gem-1 { top: 10%; left: 15%; }
+  #versiculo .gem-2 { top: 70%; right: 20%; }
+  #versiculo .gem-3 { bottom: 20%; left: 25%; }
+  #versiculo .gem-4 { top: 30%; right: 15%; }
+  
+  @keyframes twinkle {
+    0% { opacity: 0.8; }
+    50% { opacity: 0.3; }
+    100% { opacity: 0.8; }
+  }
+  
+  @media screen and (max-width: 700px) {
+    .versiculo-content {
+      margin-top: 10px;
+    }
+    #versiculo .gem-1 { margin-top: 50px; }
+    #versiculo .gem-2 { margin-top: 200px; }
+    #versiculo .gem-3 { margin-top: 50px; }
+  }
+  
+  /* ==========================================================
+     Section Common Styles (.section)
+  ========================================================== */
+  .section {
     padding: 4rem 2rem;
     margin: 3rem auto;
     border-radius: 12px;
@@ -249,13 +258,11 @@ main {
     overflow: hidden;
     max-width: 1200px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    /* fondo borrar de ser necesario */
-    background: rgba(255, 255, 255, 0.95); /* Fondo blanco semitransparente */
-    backdrop-filter: blur(5px); /* Efecto de vidrio esmerilado */
-    
-}
-
-.section::before {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+  }
+  
+  .section::before {
     content: '';
     position: absolute;
     top: 0;
@@ -264,18 +271,18 @@ main {
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(8, 88, 207, 0.05));
     transition: left 0.5s;
-}
-
-.section:hover::before {
+  }
+  
+  .section:hover::before {
     left: 100%;
-}
-
-.section:hover {
+  }
+  
+  .section:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 30px rgba(8, 88, 207, 0.15);
-}
-
-.section h2 {
+  }
+  
+  .section h2 {
     font-size: 2.8rem;
     text-align: center;
     margin-bottom: 2.5rem;
@@ -283,10 +290,10 @@ main {
     padding-bottom: 1rem;
     color: #00a2ff;
     font-weight: bold;
-    text-shadow: 5px 5px 5px #fdf040; /* Sombra negra con 70% de opacidad */
-}
-
-.section h2::after {
+    text-shadow: 5px 5px 5px #fdf040;
+  }
+  
+  .section h2::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -295,37 +302,38 @@ main {
     width: 120px;
     height: 3px;
     background: #ffd700;
-}
-
-.section p, .section ul {
+  }
+  
+  .section p,
+  .section ul {
     font-size: 1.1rem;
     line-height: 1.8;
     color: #444;
     max-width: 800px;
     margin: 0 auto 1.5rem;
-}
-
-.section ul {
+  }
+  
+  .section ul {
     padding-left: 2rem;
-    list-style-type: none;
-}
-
-.section li {
+    list-style: none;
+  }
+  
+  .section li {
     position: relative;
     padding-left: 2rem;
     margin-bottom: 1rem;
-}
-
-.section li::before {
+  }
+  
+  .section li::before {
     content: '▹';
     position: absolute;
     left: 0;
     color: #ffd700;
     font-weight: bold;
-}
-
-
-#contacto div p {
+  }
+  
+  /* Specific for Contact Section */
+  #contacto div p {
     background: #f8f9fa;
     color: #0858cf;
     padding: 1.5rem;
@@ -335,19 +343,18 @@ main {
     gap: 1rem;
     transition: all 0.3s ease;
     border: 2px solid rgba(8, 88, 207, 0.1);
-}
-
-#contacto div p:hover {
+  }
+  
+  #contacto div p:hover {
     background: #0858cf;
     color: white;
     transform: translateY(-3px);
-}
-
-
-
-
-/* Estilos del modal */
-.modal-eventos {
+  }
+  
+  /* ==========================================================
+     Modal Styles
+  ========================================================== */
+  .modal-eventos {
     display: none;
     position: fixed;
     top: 0;
@@ -356,91 +363,74 @@ main {
     height: 100%;    
     background: rgba(0, 0, 0, 0.9);
     z-index: 2000;
-
-    overflow-y: auto; /* Permitir scroll vertical */
-}
-
-.imagen-completa {
+    overflow-y: auto;
+  }
+  
+  .imagen-completa {
     display: block;
     max-width: 90%;
-    max-height: 90vh; 
-
-    margin: 80px auto 40px; /* Margen superior para la X */
-
+    max-height: 90vh;
+    margin: 80px auto 40px;
     animation: zoom 0.3s;
     position: relative;
     z-index: 2001;
-}
-
-.cerrar-modal-eventos {
-    position: fixed; /* Cambiado de absolute a fixed */
-
+  }
+  
+  .cerrar-modal-eventos {
+    position: fixed;
     top: 20px;
     right: 30px;
     color: white;
     font-size: 40px;
     cursor: pointer;
     transition: 0.3s;
-    z-index: 2100; /* Asegura que esté por encima */
-}
-
-.cerrar-modal-eventos:hover {
+    z-index: 2100;
+  }
+  
+  .cerrar-modal-eventos:hover {
     color: #ffd700;
     transform: scale(1.2);
-}
-
-
-.overlay {
+  }
+  
+  .overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 0;
     overflow: hidden;
-    transition: .5s ease;
-    
-    /* Agregado para evitar interceptar clicks */
-    pointer-events: none; 
-
-    
-    
-}
-
-@keyframes zoom {
+    transition: 0.5s ease;
+    pointer-events: none;
+  }
+  
+  @keyframes zoom {
     from { transform: scale(0.9); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
-}
-
-
-
-
-
-
-
-
-
-#map {
-    /* Estilos base */
+  }
+  
+  /* ==========================================================
+     Map Styles (#map)
+  ========================================================== */
+  #map {
     height: 400px;
     width: 100%;
     max-width: 800px;
     margin: 20px auto;
-    
-    /* Personalización visual */
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     background: #f8f9fa;
-    
-    /* Efectos opcionales */
     transition: transform 0.3s ease;
-}
-
-#map:hover {
+  }
+  
+  #map:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(8, 88, 207, 0.3);
-}
-
-footer {
+  }
+  
+  /* ==========================================================
+     Footer
+  ========================================================== */
+  footer {
     position: relative;
     width: 100%;
     background-color: #2278be;
@@ -448,121 +438,97 @@ footer {
     text-align: center;
     padding: 1rem;
     margin-top: auto;
-}
-
-
-
-
-/* ========== MEDIA QUERIES ========== */
-@media (max-width: 768px) {
-    #logo {
-        width: 40px;
-        height: 40px;
-        margin: 10px auto;
+  }
+  
+  /* ==========================================================
+     Social Icons
+  ========================================================== */
+  .social-icons {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+  }
+  
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  
+  .social-icon img {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .social-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  .social-icon[href*="facebook"] {
+    background-color: #039BE5;
+  }
+  
+  .social-icon[href*="instagram"] {
+    background-image: radial-gradient(circle at 30% 107%, #fdf497 5%, #fdf497 10%, #fd5949 40%, #d6249f 50%, #a90ff0 75%, #285AEB 90%);
+  }
+  
+  .social-icon[href*="youtube"] {
+    background-color: #ff0000;
+  }
+  
+  .social-icon[href*="tiktok"] {
+    background-color: rgb(0, 0, 0);
+  }
+  
+  .social-icon[href*="x"] {
+    background-color: black;
+  }
+  
+  .social-icon[href*="whatsapp"] {
+    background-color: #25d366;
+  }
+  
+  .social-icon[href*="t.me"] {
+    background-color: #29B6F6;
+  }
+  
+  @media (max-width: 768px) {
+    .social-icons {
+      bottom: 10px;
+      right: 10px;
     }
-    
-    .menu-toggle {
-        display: block;
-        margin: 10px auto;
-    }
-
-    .nav-menu ul {
-        flex-direction: column;
-        gap: 10px;
-        display: none;
-    }
-
-    .nav-menu.active ul {
-        display: flex;
-    }
-
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    .hero h2 {
-        font-size: 2rem;
-    }
-
-    .slider-container {
-        height: 350px;
-        aspect-ratio: 1/1.5;
-    }
-
-    .slide {
-        grid-template-columns: 1fr;
-    }
-
-    .slide img {
-        margin: 0;
-    }
-
-    .section {
-        margin: 2rem 1rem;
-        padding: 3rem 1.5rem;
-    }
-    
-    .section h2 {
-        font-size: 2.2rem;
-    }
-    
-
-    #nosotros, #contacto, #home {
-        scroll-margin-top: 120px;
-    }
-
-    #logo{
-        left: 0;
-    }
-}
-
-@media (min-width: 769px) {
-    .slide {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .section {
-        padding: 5rem 3rem;
-    }
-
-    #logo {
-        left: 20px;
-    }
-}
-
-/* ========== AJUSTES DE SCROLL ========== */
-#nosotros, #contacto, #vision, #mision, #home {
-    scroll-margin-top: 140px;
-}
-
-/* galeria*/
-*{
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.galeria{
+  }
+  
+  /* ==========================================================
+     Gallery Section (Galería)
+  ========================================================== */
+  .galeria {
     font-family: 'open sans';
-}
-
-.galeria h1{
+  }
+  
+  .galeria h1 {
     font-size: 2.8rem;
     text-align: center;
     margin-bottom: 2.5rem;
-    margin-top: 30px; /* Mueve el cuadro 20px hacia abajo */
+    margin-top: 30px;
     position: relative;
     padding-bottom: 1rem;
     color: #00a2ff;
     font-weight: bold;
-    text-shadow: 5px 5px 5px #fdf040; /* Sombra negra con 70% de opacidad */
-
-}
-
-.galeria h1::after {
+    text-shadow: 5px 5px 5px #fdf040;
+  }
+  
+  .galeria h1::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -571,83 +537,228 @@ footer {
     width: 120px;
     height: 3px;
     background: #ffd700;
-}
-
-
-.contenedor-imagenes{
-    display:flex;
+  }
+  
+  .contenedor-imagenes {
+    display: flex;
     width: 85%;
     margin: auto;
     justify-content: space-around;
     flex-wrap: wrap;
-    border-radius:3px;
-}
-
-.contenedor-imagenes .imagen{
+    border-radius: 3px;
+  }
+  
+  .contenedor-imagenes .imagen {
     width: 32%;
     position: relative;
-    height:250px;
-    margin-bottom:5px;
-    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, .75)
-}
-.imagen img{
+    height: 250px;
+    margin-bottom: 5px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.75);
+  }
+  
+  .imagen img {
     width: 100%;
-    height:100%;
+    height: 100%;
     object-fit: cover;
-
     cursor: pointer;
-}
-
-.overlay{
+  }
+  
+  .overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 0;
     overflow: hidden;
-    transition: .5s ease;
-}
-
-.overlay h2{
+    transition: 0.5s ease;
+  }
+  
+  .overlay h2 {
     color: #fff;
     font-weight: 300;
-    font-size:30px;
+    font-size: 30px;
     position: absolute;
     top: 50%;
-    left:50%;
+    left: 50%;
     text-align: center;
     transform: translate(-50%, -50%);
-}
-
-.imagen:hover .overlay{
-    height:100%;
+  }
+  
+  .imagen:hover .overlay {
+    height: 100%;
     cursor: pointer;
-}
-
-/*responsive*/
-@media screen and (max-width:1000px){
-    .contenedor-imagenes{
-        width: 95%;
+  }
+  
+  /* Responsive adjustments for Gallery */
+  @media screen and (max-width: 1000px) {
+    .contenedor-imagenes {
+      width: 95%;
     }
-}
-
-@media screen and (max-width:700px){
-    .contenedor-imagenes{
-        width: 80%;
+  }
+  
+  @media screen and (max-width: 700px) {
+    .contenedor-imagenes {
+      width: 80%;
     }
-    .contenedor-imagenes .imagen{
-        width: 80%;
+    .contenedor-imagenes .imagen {
+      width: 80%;
     }
-}
-
-@media screen and (max-width:450px){
-    h1{
-        font-size:22px;
+  }
+  
+  @media screen and (max-width: 450px) {
+    .galeria h1 {
+      font-size: 22px;
     }
-    .contenedor-imagenes{
-        width: 98%;
+    .contenedor-imagenes {
+      width: 98%;
     }
-    .contenedor-imagenes .imagen{
-        width: 80%;
+    .contenedor-imagenes .imagen {
+      width: 80%;
     }
-}
+  }
+  
+  /* ==========================================================
+     Slider Controls (para Galería)
+  ========================================================== */
+  .slider-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .slider-arrow {
+    background-color: #0077C0;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .slider-arrow:hover {
+    background-color: #005b99;
+  }
+  
+  .slider-arrow:disabled {
+    background-color: #cccccc;
+    cursor: default;
+  }
+  
+  /* ==========================================================
+     Videos Section
+  ========================================================== */
+  .videos-title {
+    font-size: 2.8rem;
+    margin-top: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00a2ff;
+    text-shadow: 5px 5px 5px #fdf040;
+    position: relative;
+  }
+  
+  .videos-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 3px;
+    background: #ffd700;
+  }
+  
+  .video-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background: linear-gradient(45deg, #d2d3d4, #e7e8e9, #ffffff);
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .video-wrapper {
+    width: 350px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .video-wrapper video {
+    width: 100%;
+    display: block;
+  }
+  
+  /* ==========================================================
+     Responsive Media Queries
+  ========================================================== */
+  @media (max-width: 768px) {
+    #logo {
+      width: 40px;
+      height: 40px;
+      margin: 10px auto;
+      left: 0;
+    }
+    .menu-toggle {
+      display: block;
+      margin: 10px auto;
+    }
+    .nav-menu ul {
+      flex-direction: column;
+      gap: 10px;
+      display: none;
+    }
+    .nav-menu.active ul {
+      display: flex;
+    }
+    h1 {
+      font-size: 1.5rem;
+    }
+    .hero h2 {
+      font-size: 2rem;
+    }
+    .slider-container {
+      height: 350px;
+      aspect-ratio: 1/1.5;
+    }
+    .slide {
+      grid-template-columns: 1fr;
+    }
+    .slide img {
+      margin: 0;
+    }
+    .section {
+      margin: 2rem 1rem;
+      padding: 3rem 1.5rem;
+    }
+    .section h2 {
+      font-size: 2.2rem;
+    }
+    #nosotros, #contacto, #home {
+      scroll-margin-top: 120px;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .slide {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .section {
+      padding: 5rem 3rem;
+    }
+    #logo {
+      left: 20px;
+    }
+  }
+  
+  /* Ajuste de scroll para anclas */
+  #nosotros, #contacto, #vision, #mision, #home {
+    scroll-margin-top: 140px;
+  }
+  
