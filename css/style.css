@@ -163,6 +163,13 @@
     color: #fff;
     overflow: hidden;
   }
+
+  #versiculo h2 {
+    color: #00a2ff;
+    font-weight: bold;
+    text-shadow: 5px 5px 5px #fdf040;
+    font-size: 2.8rem;
+  }
   
   .versiculo-background {
     position: absolute;
@@ -184,6 +191,16 @@
     margin: 0 auto;
     z-index: 1;
     padding: 2rem 0;
+  }
+
+  .versiculo-content-wrapper h3{
+    /* color: #00a2ff; */
+    font-weight: bold;
+    color:  #fdf040;
+    font-size: 1,8rem;
+    
+    margin-bottom: 20px;
+    /* font-size: 2.8rem; */
   }
   
   .versiculo-content {
