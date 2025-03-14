@@ -12,6 +12,7 @@
       scroll-behavior: smooth;
     }
   }
+
   
   body {
     font-family: "DM Serif Text", serif;
@@ -715,15 +716,54 @@
   }
   
   /* ==========================================================
-     Responsive Media Queries
+     Responsive Media Queries max de 500px
   ========================================================== */
-  @media(max-width: 500px){
+  
+  @media(max-width: 400px){
     #logo {
       top: 45px;
       padding: 4px;
     }
-  }
+
+    .hero h2 {
+      margin-top: 90px;
+    }
+    
+    @keyframes twinkle {
+      0% { opacity: 0.8; }
+      50% { opacity: 0.3; }
+      100% { opacity: 0.8; }
+    }
+    
+    #versiculo .gem-1 { margin-top: 50px; }
+    #versiculo .gem-2 { margin-top: 100px; }
+    #versiculo .gem-3 { top: 82%; }
+    #versiculo .gem-4 { top: 48%; right: 25%; }
+      
   
+    .versiculo-content {
+      padding: 2%; /* Reduce el padding */
+      margin-right: 50px;
+
+    }
+}
+
+@media(max-width: 500px){
+  #logo {
+    top: 45px;
+    padding: 4px;
+  }
+
+  .hero h2 {
+    margin-top: 90px;
+  }
+}
+  
+
+  /* ==========================================================
+     Responsive Media Queries 768px en adelante
+  ========================================================== */
+
   @media (max-width: 768px) {
     #logo {
       width: 40px;
