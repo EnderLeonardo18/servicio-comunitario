@@ -160,9 +160,13 @@
     position: relative;
     padding: 4rem 2rem;
     text-align: center;
-    height: 1000px;
     color: #fff;
     overflow: hidden;
+    
+    /* height: 1000px; */
+
+    min-height: 800px; /* Cambia height fijo por min-height */
+    width: 100%; /* Asegura que ocupe el 100% del ancho */
   }
 
   #versiculo h2 {
@@ -719,6 +723,36 @@
      Responsive Media Queries max de 500px
   ========================================================== */
   
+  @media(max-width: 500px){
+    #logo {
+      top: 45px;
+      padding: 4px;
+    }
+  
+    .hero h2 {
+      margin-top: 90px;
+    }
+  
+    .versiculo-background{
+      background-image: url(../images/versiculos1.jpg);
+      background-size: 100% 100%; /* Ajusta el fondo para pantallas pequeñas */
+    }
+  
+    #versiculo .gem-1 { margin-top:33%; }
+    #versiculo .gem-2 { margin-top: 40%; right: 17%; }
+    #versiculo .gem-3 { top: 85%; }
+    #versiculo .gem-4 { top: 52%; right: 20%; }
+  
+    .versiculo-content {
+      /* Reduce el padding */
+      /* padding: 2%;  */
+      margin-right: 50px;
+    }
+  
+  }
+
+
+
   @media(max-width: 400px){
     #logo {
       top: 45px;
@@ -729,39 +763,29 @@
       margin-top: 90px;
     }
     
-    @keyframes twinkle {
-      0% { opacity: 0.8; }
-      50% { opacity: 0.3; }
-      100% { opacity: 0.8; }
-    }
-    
-    #versiculo .gem-1 { margin-top: 50px; }
-    #versiculo .gem-2 { margin-top: 100px; }
-    #versiculo .gem-3 { top: 82%; }
-    #versiculo .gem-4 { top: 48%; right: 25%; }
+
+    #versiculo .gem-1 { margin-top: 40%;  }
+    #versiculo .gem-2 { margin-top: 160px; right: 15%; }
+    #versiculo .gem-3 { top: 85%; }
+    #versiculo .gem-4 { top: 52%; right: 12%; }
       
   
-    .versiculo-content {
-      padding: 2%; /* Reduce el padding */
-      margin-right: 50px;
+    .versiculo-background{
+      background-image: url(../images/versiculos1.jpg);
+      background-size: 100% 100%; /* Ajusta el fondo para pantallas pequeñas */
 
+    }
+
+    .versiculo-content {
+      /* Reduce el padding */
+      /* padding: 2%;  */
+      margin-right: 50px;
     }
 }
 
-@media(max-width: 500px){
-  #logo {
-    top: 45px;
-    padding: 4px;
-  }
-
-  .hero h2 {
-    margin-top: 90px;
-  }
-}
-  
 
   /* ==========================================================
-     Responsive Media Queries 768px en adelante
+     Responsive Media Queries 768px 
   ========================================================== */
 
   @media (max-width: 768px) {
@@ -809,6 +833,13 @@
     #nosotros, #contacto, #home {
       scroll-margin-top: 120px;
     }
+
+    .versiculo-background{
+      background-image: url(../images/versiculos1.jpg);
+      background-size: 100% 100%; /* Ajusta el fondo para pantallas pequeñas */
+    }
+
+
   }
   
   @media (min-width: 769px) {
@@ -816,8 +847,24 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
     }
+
+
+    .versiculo{
+      /* Ajusta esto según tus necesidades */
+      max-width: 1200px;
+      width: 100%; /* Asegúrate de que el contenedor ocupe el 100% del ancho disponible */
+      margin: 0 auto; /* Centra el contenedor si es necesario */
+    }
+
+
+    #versiculo .gem-1 { margin-top:20%; }
+    #versiculo .gem-2 { margin-top: 30%; right: 6%; }
+    #versiculo .gem-3 { top: 85%; }
+    #versiculo .gem-4 { top: 49%; right: 6%; }
   }
   
+
+
   @media (min-width: 1200px) {
     .section {
       padding: 5rem 3rem;
@@ -826,7 +873,6 @@
       left: 20px;
     }
   }
-  
   /* Ajuste de scroll para anclas */
   #nosotros, #contacto, #vision, #mision, #home {
     scroll-margin-top: 140px;
