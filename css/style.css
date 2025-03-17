@@ -199,7 +199,6 @@
     font-weight: bold;
     color:  #fdf040;
     font-size: 1,8rem;
-    
     margin-bottom: 20px;
     /* font-size: 2.8rem; */
   }
@@ -253,6 +252,14 @@
     50% { opacity: 0.3; }
     100% { opacity: 0.8; }
   }
+
+  @media screen and (max-width: 768px) {
+    .versiculo-content {
+      margin-top: 50px;
+      min-height: 235px;
+    }
+    #versiculo .gem-4 { top: 35%; right: 5%; }
+  }
   
   @media screen and (max-width: 700px) {
     .versiculo-content {
@@ -264,6 +271,39 @@
     #versiculo .gem-4 { top: 45%; right: 15%; }
     
   }
+
+  @media screen and (max-width: 600px) {
+    .versiculo-content {
+      min-height: 235px;
+    }
+    
+  }
+
+  @media screen and (max-width: 400px) {
+    .versiculo-content {
+      min-height: 230px;
+    }
+    
+  }
+
+  @media screen and (max-width: 367px) {
+    .versiculo-content {
+      min-height: 250px;
+    }
+    
+  }
+
+  @media screen and (max-width: 320px) {
+    .versiculo-content-wrapper {
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    }
+    .versiculo-background {
+      /* ... otros estilos ... */
+      background-size: 100% 100%;
+      background-repeat: no-repeat; /* Evita que la imagen se repita */
+  }
+  }
+  
   
   /* ==========================================================
      Section Common Styles (.section)
@@ -369,6 +409,12 @@
     background: #0858cf;
     color: white;
     transform: translateY(-3px);
+  }
+
+  @media (min-width: 320px) and (max-width: 370px) {
+    #contacto div p {
+      font-size: 0.875rem; /* Tamaño de fuente reducido para pantallas pequeñas */
+    }
   }
   
   /* ==========================================================
@@ -529,6 +575,34 @@
     .social-icons {
       bottom: 10px;
       right: 10px;
+    }
+  }
+  @media (max-width: 480px) {
+    .social-icon {
+      width: 30px;
+      height: 30px;
+      
+    }
+  }
+  @media (max-width: 450px) {
+    .social-icon {
+      width: 30px;
+      height: 30px;
+      
+    }
+  }
+  @media (max-width: 400px) {
+    .social-icon {
+      width: 30px;
+      height: 30px;
+      
+    }
+  }
+  @media (max-width: 367px) {
+    .social-icon {
+      width: 30px;
+      height: 30px;
+      
     }
   }
   
