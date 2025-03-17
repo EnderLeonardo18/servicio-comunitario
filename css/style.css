@@ -297,6 +297,7 @@
     
   }
 
+  /* 320px el max-width */
   @media screen and (max-width: 320px) {
     .versiculo-content-wrapper {
       grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
